@@ -55,9 +55,7 @@ export const VerificationCodeEmail = ({ email, verificationToken }) => {
 
 // reset-password code
 export const ResetPasswordEmail = (email, resetToken) => {
-    const BASE_URL = import.meta.env.VITE_FRONTEND_URL || "http://localhost:5173";
-    const resetUrl = `${BASE_URL}/reset_password/${resetToken}`;
-    
+  const resetUrl = import.meta.env.MODE === 'development' ? `http://localhost:3000/reset-password/${resetToken}` : `/api/auth/reset-password/${resetToken}`;
 
   return `
     <!DOCTYPE html>
