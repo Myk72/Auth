@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+const API_URL = process.env.CLIENT_URL
 // email-verification code
 export const VerificationCodeEmail = ({ email, verificationToken }) => {
   return `
@@ -54,8 +57,9 @@ export const VerificationCodeEmail = ({ email, verificationToken }) => {
 };
 
 // reset-password code
+
 export const ResetPasswordEmail = (email, resetToken) => {
-  const resetUrl = import.meta.env.MODE === 'development' ? `http://localhost:3000/reset-password/${resetToken}` : `/api/auth/reset-password/${resetToken}`;
+  const resetUrl = `${API_URL}/reset_password/${resetToken}` ;
 
   return `
     <!DOCTYPE html>

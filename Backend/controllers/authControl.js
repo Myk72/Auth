@@ -102,7 +102,6 @@ export const VerifyEmail = async (req, res) => {
 
             }});
     } catch {
-        clg(error);
         res.status(400).json({ success : false, message : error });
     }
 }
@@ -124,8 +123,9 @@ export const forgotPassword = async (req, res) => {
 
         await sendResetPasswordEmail({email, resetToken});
         res.status(200).json({ success : true, message : "Password reset link sent to your email" });
-    } catch {
-        res.status(400).json({ success : false, message : error.message });
+    } catch  {
+        res.status(400).json({ success : false, message : "Error" });
+        throw error;
     }
 }
 

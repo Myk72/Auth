@@ -21,7 +21,7 @@ const ForgotPassPage = () => {
         alert("Password reset link sent");
         setMessage_is_sent(true);
       }
-    } catch (error) {
+    } catch  {
       console.log(error);
     }
   };
@@ -52,6 +52,7 @@ const ForgotPassPage = () => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
+                  setValidEmail(false);
                 }}
                 required
                 className="flex-1 p-1 text-sm focus:outline-none placeholder-gray-400"

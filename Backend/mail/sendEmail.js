@@ -25,7 +25,6 @@ export const sendVerificationEmail = async ({email, verificationToken}) => {
 
 export const sendResetPasswordEmail = async ({email, resetToken}) => {
     try {
-
         await transporter.sendMail({
             from: `"noreply" <${process.env.USER}>`,
             to: email,
@@ -37,8 +36,7 @@ export const sendResetPasswordEmail = async ({email, resetToken}) => {
         console.log("Email sent successfully");
 
 
-    } catch {
-        console.log("Error sending email", error)       
-
-    }
+    } catch  {
+        console.log(error)
+    }   
 }

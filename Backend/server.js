@@ -12,7 +12,7 @@ const app = express();
 const __dirname = path.resolve();
 app.use(cookieParser());
 app.use(cors({
-    origin: [process.env.CLIENT_URL],
+    origin: process.env.CLIENT_URL,
     credentials: true, 
 }));
 const PORT = process.env.PORT || 5000;  

@@ -86,7 +86,6 @@ const loginPage = () => {
               })}
               placeholder="Enter password"
               onChange={() => {
-                setPasswordMismatch(false);
                 form.clearErrors("password");
               }}
               className="border border-[#D6DDEB] rounded-xl p-2 pl-12 w-full"
