@@ -39,12 +39,10 @@ const Redirect = ({ children }) => {
     if (isAuthenticated && user?.is_verified) {
       navigate("/");
     }
-  }, [ isAuthenticated, user, navigate]);
+  }, [isAuthenticated, user, navigate]);
 
   if (isCheckingAuth) {
-    return (
-      < spinPage />
-    );
+    return <spinPage />;
   }
 
   return children;
@@ -59,55 +57,61 @@ const App = () => {
 
   if (isCheckingAuth) {
     return (
-      <SpinPage />
+      <div className="">
+        <SpinPage />
+      </div>
     );
   }
 
   return (
     <div className="flex justify-center items-center bg-gradient-to-r from-blue-50 to-purple-50 p-10 min-h-screen">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <Redirect>
-              <LoginPage />
-            </Redirect>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <Redirect>
-              <SignupPage />
-            </Redirect>
-          }
-        />
-        <Route
-          path="/forgot_password"
-          element={
-            <Redirect>
-              <ForgotPassPage />
-            </Redirect>
-          }
-        />
-        <Route path="/verify_email" element={<VerifyEmail />} />
-        <Route
-          path="/reset_password/:token"
-          element={
-            <Redirect>
-              <ResetPasswordPage />
-            </Redirect>
-          }
-        />
-      </Routes>
+      {!isCheckingAuth ? (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <Redirect>
+                <LoginPage />
+              </Redirect>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <Redirect>
+                <SignupPage />
+              </Redirect>
+            }
+          />
+          <Route
+            path="/forgot_password"
+            element={
+              <Redirect>
+                <ForgotPassPage />
+              </Redirect>
+            }
+          />
+          <Route path="/verify_email" element={<VerifyEmail />} />
+          <Route
+            path="/reset_password/:token"
+            element={
+              <Redirect>
+                <ResetPasswordPage />
+              </Redirect>
+            }
+          />
+        </Routes>
+      ) : (
+        <SpinPage />
+      )}
     </div>
   );
 };
