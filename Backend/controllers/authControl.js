@@ -2,7 +2,7 @@ import { User } from "../models/usermodel.js";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import { generateVerificationCode, generateToken } from "../utils/gencode.js";
-import { sendVerificationEmail , sendResetPasswordEmail } from "../mailtrap/sendEmail.js";
+import { sendVerificationEmail , sendResetPasswordEmail } from "../mail/sendEmail.js";
 
 
 export const signup = async (req, res) => {
