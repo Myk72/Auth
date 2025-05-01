@@ -25,7 +25,7 @@ const loginPage = () => {
     }
   };
   return (
-    <div className="flex flex-col gap-6 p-8  justify-center  w-1/3 bg-white rounded-3xl shadow-2xl  font-serif overflow-hidden ">
+    <div className="flex flex-col gap-6 p-8  justify-center w-2/5 bg-white rounded-3xl shadow-2xl  font-serif overflow-hidden ">
       <div className="flex flex-col gap-2 justify-center ">
         <div className="flex justify-center items-center">
           <img src="/login.png" className="size-16" />

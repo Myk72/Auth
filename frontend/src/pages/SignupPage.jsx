@@ -37,7 +37,7 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6 justify-center p-10 w-1/3 bg-white rounded-3xl shadow-2xl overflow-hidden ">
+    <div className="flex flex-col gap-6 justify-center p-10 w-2/5 bg-white rounded-3xl shadow-2xl overflow-hidden ">
       <div className="flex flex-row justify-center font-bold text-3xl -mt-2 gap-2 items-center font-serif">
         <div>Sign-up</div>
         <img src="/signup.png" className="size-8" />
